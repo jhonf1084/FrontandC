@@ -1,0 +1,93 @@
+<app-header-two [sticky]="true"></app-header-two>
+
+<!-- Home slider start-->
+<section class="p-0">
+    <app-slider 
+        [sliders]="sliders"
+        [textClass]="'text-center'"
+        [category]="'fashion'"
+        [buttonText]="'shop now'">
+    </app-slider>
+</section>
+<!-- Home slider End -->
+
+<!-- collection banner start-->
+<section class="banner-padding banner-furniture">
+    <div class="container-fluid">
+        <div class="row partition2">
+            <div class="col-md-6" *ngFor="let collection of collections1">
+                <a [routerLink]="['/shop/collection/left/sidebar']" [queryParams]="{ category: 'fashion'}">
+                    <div class="collection-banner p-left text-start">
+                        <img [src]="collection.image" class="img-fluid" alt="collection-banner">
+                        <div class="contain-banner">
+                            <div>
+                                <h4>{{collection.save}}</h4>
+                                <h2>{{collection.title}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="banner-padding banner-furniture">
+    <div class="container-fluid">
+        <div class="row partition2">
+            <div class="col-md-6" *ngFor="let collection of collections2">
+                <a [routerLink]="['/shop/collection/left/sidebar']" [queryParams]="{ category: 'fashion'}">
+                    <div class="collection-banner p-left text-start">
+                        <img [src]="collection.image" class="img-fluid" alt="collection-banner">
+                        <div class="contain-banner">
+                            <div>
+                                <h4>{{collection.save}}</h4>
+                                <h2>{{collection.title}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- collection banner End -->
+
+<!-- Tab product start-->
+<div class="title1 section-t-space">
+    <h2 class="title-inner1">Los mas vendidos</h2>
+</div>
+<section class="section-b-space p-t-0">
+    <div class="container">
+        <div class="row">
+            <div class="col theme-tab">
+                <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="tabs tab-title justify-content-center nav nav-pills" >
+                    <li *ngFor="let collection of productCollections" [ngbNavItem]="collection">
+                      <a ngbNavLink>
+                         {{ collection }}
+                      </a>
+                      <ng-template ngbNavContent>
+                        <div class="no-slider row">
+                            <ng-container *ngFor="let product of getCollectionProducts(collection) | slice:0:4">
+                                <div class="product-box">
+                                    <app-product-box-one [product]="product" [currency]="productService?.Currency">
+                                    </app-product-box-one>
+                                </div>
+                            </ng-container>
+                        </div>
+                      </ng-template>
+                    </li>
+                  </ul>
+                  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Tab product End -->
+
+
+
+<!-- product slider end -->
+
+
+<app-newsletter></app-newsletter>
+<app-footer-two [themeLogo]="themeLogo"></app-footer-two>
