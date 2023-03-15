@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HomeSlider } from '../../../shared/data/slider';
 import { Product } from '../../../shared/classes/product';
 import { ProductService } from '../../../shared/services/product.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,20 +19,14 @@ export class FashionTwoComponent implements OnInit {
   public productCollections: any[] = [];
   active;
 
-  constructor(public productService: ProductService,private router:Router) {
+  constructor(public productService: ProductService,private router:Router, private http: HttpClient) {
     if (!localStorage.getItem("token")) {
       this.router.navigate(["/pages/login"]);
     }
     
     this.productService.getProducts.subscribe(response => {
-      this.products = response.filter(item => item.type == 'fashion');
-      // Get Product Collection
-      this.products.filter((item, i) => {
-        item.collection.filter((collection) => {
-          const index = this.productCollections.indexOf(collection);
-          if (index === -1) this.productCollections.push(collection);
-        })
-      })
+      this.products = response;
+      this.productCollections = ["best sellers"];
     });
   }
 
@@ -55,15 +51,17 @@ export class FashionTwoComponent implements OnInit {
   public collections2 = [];
 
   ngOnInit(): void {
+   /*  this.http.get<any>('http://localhost:8080/producto/genero/femenino').subscribe(
+      this.products = data
+    ) */
   }
 
+
+
   // Product Tab collection
-  getCollectionProducts(collection) {
-    return this.products.filter((item) => {
-      if (item.collection.find(i => i === collection)) {
-        return item
-      }
-    })
+  getProducts() {
+
+    return this.products;
   }
 
 }

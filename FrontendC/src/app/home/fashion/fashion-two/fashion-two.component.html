@@ -2,11 +2,7 @@
 
 <!-- Home slider start-->
 <section class="p-0">
-    <app-slider 
-        [sliders]="sliders"
-        [textClass]="'text-center'"
-        [category]="'fashion'"
-        [buttonText]="'Comprar ahora'">
+    <app-slider [sliders]="sliders" [textClass]="'text-center'" [category]="'fashion'" [buttonText]="'Comprar ahora'">
     </app-slider>
 </section>
 <!-- Home slider End -->
@@ -60,24 +56,26 @@
     <div class="container">
         <div class="row">
             <div class="col theme-tab">
-                <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="tabs tab-title justify-content-center nav nav-pills" >
-                    <li *ngFor="let collection of productCollections" [ngbNavItem]="collection">
-                      <a ngbNavLink>
-                         {{ collection }}
-                      </a>
-                      <ng-template ngbNavContent>
-                        <div class="no-slider row">
-                            <ng-container *ngFor="let product of getCollectionProducts(collection) | slice:0:4">
-                                <div class="product-box">
-                                    <app-product-box-one [product]="product" [currency]="productService?.Currency">
-                                    </app-product-box-one>
+                <div class="col theme-tab">
+                    <ul class="tabs tab-title justify-content-center nav nav-pills">
+                        <li>
+                            <div class="no-slider row">
+                                <div class="no-slider row">
+                                    <ng-container *ngFor="let product of getProducts() | slice:0:4">
+                                        <div class="product-box">
+                                            <app-product-box-one [product]="product"
+                                                [currency]="productService?.Currency">
+                                            </app-product-box-one>
+                                        </div>
+                                    </ng-container>
                                 </div>
-                            </ng-container>
-                        </div>
-                      </ng-template>
-                    </li>
-                  </ul>
-                  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+
             </div>
         </div>
     </div>

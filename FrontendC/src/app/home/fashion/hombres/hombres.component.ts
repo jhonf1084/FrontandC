@@ -17,11 +17,11 @@ export class HombresComponent implements OnInit {
   public productCollections: any[] = [];
   active;
 
-  constructor(public productService: ProductService,private router:Router) {
+  constructor(public productService: ProductService, private router: Router) {
     if (!localStorage.getItem("token")) {
       this.router.navigate(["/pages/login"]);
     }
-    
+
     this.productService.getProducts.subscribe(response => {
       this.products = response.filter(item => item.type == 'fashion');
       // Get Product Collection
@@ -41,7 +41,7 @@ export class HombresComponent implements OnInit {
     subTitle: 'Hombre',
     path: '/home/hombres',
     image: 'assets/images/slider/inicioHombre.jpg'
-  },{
+  }, {
     title: '',
     subTitle: 'Mujeres',
     path: '/home/mujeres',
