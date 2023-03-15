@@ -1,5 +1,5 @@
 .DS_STORE
-.angular
+/.angular/cache
 
 /dist/
 /bazel-out
