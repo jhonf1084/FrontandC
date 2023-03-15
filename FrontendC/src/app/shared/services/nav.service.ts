@@ -55,7 +55,7 @@ export class NavService {
 				{ path: '/home/bags', title: 'bags', type: 'link' },
 				{ path: '/home/marijuana', title: 'marijuana', type: 'link' }
 			]
-		},
+		}/* ,
 		{
 			title: 'Shop', type: 'sub', active: false, children: [
 				{ path: '/shop/collection/left/sidebar', title: 'left-sidebar', type: 'link' },
@@ -168,7 +168,7 @@ export class NavService {
 				{ path: '/pages/blog/no/sidebar', title: 'no-sidebar', type: 'link' },
 				{ path: '/pages/blog/details', title: 'blog-details', type: 'link' }
 			]
-		}
+		} */
 	];
 
 	LEFTMENUITEMS: Menu[] = [
