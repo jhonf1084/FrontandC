@@ -5,11 +5,11 @@ import { ProductService } from '../../../shared/services/product.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-fashion-two',
-  templateUrl: './fashion-two.component.html',
-  styleUrls: ['./fashion-two.component.scss']
+  selector: 'app-hombres',
+  templateUrl: './hombres.component.html',
+  styleUrls: ['./hombres.component.scss']
 })
-export class FashionTwoComponent implements OnInit {
+export class HombresComponent implements OnInit {
 
   public themeLogo: string = 'assets/images/icon/logo-5.png'; // Change Logo
 
@@ -47,7 +47,6 @@ export class FashionTwoComponent implements OnInit {
     path: '/home/mujeres',
     image: 'assets/images/slider/inicioMujer.jpg'
   }]
-  
 
   // Collection banner
   public collections1 = [];

@@ -5,13 +5,15 @@ import { ShopComponent } from './shop/shop.component';
 import { PagesComponent } from './pages/pages.component';
 import { ElementsComponent } from './elements/elements.component';
 import { FashionTwoComponent } from './home/fashion/fashion-two/fashion-two.component';
+
+import { MujerComponent } from './home/fashion/mujer/mujer.component';
 import { LoginComponent } from './pages/account/login/login.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'pages/login',
     pathMatch: 'full'
   },
   {
@@ -27,13 +29,9 @@ const routes: Routes = [
     component: PagesComponent,
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   },
-  { 
-    path: 'login', 
-    component: LoginComponent 
-  },
   {
     path: '**', // Navigate to Home Page if not found any page
-    redirectTo: 'login',
+    redirectTo: 'pages/login',
   },
 ];
 
