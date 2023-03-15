@@ -21,6 +21,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { SuccessComponent } from './checkout/success/success.component';
 
 import { Resolver } from '../shared/services/resolver.service';
+import { MujeresComponent } from './collection/mujeres/mujeres.component';
+import { HombresComponent } from './collection/hombres/hombres.component';
 
 const routes: Routes = [
   {
@@ -83,6 +85,14 @@ const routes: Routes = [
   {
     path: 'collection/no/sidebar',
     component: CollectionNoSidebarComponent
+  },
+  {
+    path: 'mujeres',
+    component: MujeresComponent
+  },
+  {
+    path: 'hombres',
+    component: HombresComponent
   },
   {
     path: 'collection/infinitescroll',

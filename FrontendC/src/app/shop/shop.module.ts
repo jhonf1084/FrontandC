@@ -11,6 +11,9 @@ import { ProductLeftSidebarComponent } from './product/sidebar/product-left-side
 import { ProductRightSidebarComponent } from './product/sidebar/product-right-sidebar/product-right-sidebar.component';
 import { ProductNoSidebarComponent } from './product/sidebar/product-no-sidebar/product-no-sidebar.component';
 import { FourImageComponent } from './product/four-image/four-image.component';
+
+import { MujeresComponent } from './collection/mujeres/mujeres.component';
+import { HombresComponent } from './collection/hombres/hombres.component';
 import { ThreeColumnComponent } from './product/three-column/three-column.component';
 import { BundleProductComponent } from './product/bundle-product/bundle-product.component';
 import { ImageOutsideComponent } from './product/image-outside/image-outside.component';
@@ -52,6 +55,8 @@ import {RouterModule} from '@angular/router';
     ProductNoSidebarComponent,
     ThreeColumnComponent,
     FourImageComponent,
+    MujeresComponent,
+    HombresComponent,
     BundleProductComponent,
     ImageOutsideComponent,
     ServicesComponent,

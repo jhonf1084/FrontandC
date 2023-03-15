@@ -37,9 +37,29 @@ export class ProductService {
     return this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
   }
 
+  private get productsMujeres(): Observable<Product[]> {
+    this.Products = this.http.get<Product[]>('http://localhost:8080/producto/genero/femenino', {headers: {"Authorization": "Bearer" + localStorage.getItem("token")}}).pipe(map(data => data));
+    this.Products.subscribe(next => { localStorage['products'] = JSON.stringify(next) });
+    return this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
+  }
+
+  private get productsHombres(): Observable<Product[]> {
+    this.Products = this.http.get<Product[]>('http://localhost:8080/producto/genero/masculino', {headers: {"Authorization": "Bearer" + localStorage.getItem("token")}}).pipe(map(data => data));
+    this.Products.subscribe(next => { localStorage['products'] = JSON.stringify(next) });
+    return this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
+  }
+
   // Get Products
   public get getProducts(): Observable<Product[]> {
     return this.products;
+  }
+
+  public get getProductsHombres(): Observable<Product[]> {
+    return this.productsHombres;
+  }
+
+  public get getProductsMujeres(): Observable<Product[]> {
+    return this.productsMujeres;
   }
 
   // Get Products By Slug

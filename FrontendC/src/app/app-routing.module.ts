@@ -6,7 +6,6 @@ import { PagesComponent } from './pages/pages.component';
 import { ElementsComponent } from './elements/elements.component';
 import { FashionTwoComponent } from './home/fashion/fashion-two/fashion-two.component';
 
-import { MujerComponent } from './home/fashion/mujer/mujer.component';
 import { LoginComponent } from './pages/account/login/login.component';
 
 
@@ -23,6 +22,11 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: 'shop',
+    component: ShopComponent,
+    loadChildren: () => import('./shop/shop.module').then(m => m.ShopModule)
   },
   {
     path: 'pages',

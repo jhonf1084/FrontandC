@@ -34,13 +34,13 @@ export class FashionTwoComponent implements OnInit {
 
   public sliders = [{
     title: '',
-    subTitle: 'Hombre',
-    path: '/home/hombres',
+    subTitle: 'Hombres',
+    path: '/shop/hombres',
     image: 'assets/images/slider/inicioHombre.jpg'
   },{
     title: '',
     subTitle: 'Mujeres',
-    path: '/home/mujeres',
+    path: '/shop/mujeres',
     image: 'assets/images/slider/inicioMujer.jpg'
   }]
   
