@@ -23,7 +23,7 @@ const routes: Routes = [
     component: FashionOneComponent
   },
   {
-    path: 'fashion-2',
+    path: 'inicio',
     component: FashionTwoComponent
   },
   {

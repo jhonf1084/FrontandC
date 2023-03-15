@@ -4,34 +4,36 @@ import { Routes, RouterModule } from '@angular/router';
 import { ShopComponent } from './shop/shop.component';
 import { PagesComponent } from './pages/pages.component';
 import { ElementsComponent } from './elements/elements.component';
+import { FashionTwoComponent } from './home/fashion/fashion-two/fashion-two.component';
+import { LoginComponent } from './pages/account/login/login.component';
+
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home/fashion',
+    redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'inicio',
+    component: FashionTwoComponent
   },
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
-    path: 'shop',
-    component: ShopComponent,
-    loadChildren: () => import('./shop/shop.module').then(m => m.ShopModule)
-  },
-  { 
     path: 'pages',
     component: PagesComponent,
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) 
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   },
   { 
-    path: 'elements', 
-    component: ElementsComponent,
-    loadChildren: () => import('./elements/elements.module').then(m => m.ElementsModule) },
+    path: 'login', 
+    component: LoginComponent 
+  },
   {
     path: '**', // Navigate to Home Page if not found any page
-    redirectTo: 'home/fashion',
+    redirectTo: 'login',
   },
 ];
 
